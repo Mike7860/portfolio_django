@@ -16,12 +16,18 @@ def index(request):
     # Portfolio
     portfolios = Portfolio.objects.all()
 
+    #Visits
+    num_visits = request.session.get('num_visits', 0)
+    request.session['num_visits'] = num_visits + 1
+
+
     context = {
         'home': home,
         'about': about,
         'profiles': profiles,
         'categories': categories,
-        'portfolios': portfolios
+        'portfolios': portfolios,
+        'num_visits': num_visits
     }
 
     return render(request, 'index.html', context)
