@@ -17,8 +17,10 @@ def index(request):
     portfolios = Portfolio.objects.all()
 
     #Visits
+    #visits before next deploy
+    history_views = 0
     num_visits = request.session.get('num_visits', 0)
-    request.session['num_visits'] = num_visits + 1
+    request.session['num_visits'] = num_visits + 1 if history_views == 0 else num_visits + 1 + history_views
 
 
     context = {
