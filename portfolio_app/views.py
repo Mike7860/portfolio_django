@@ -15,7 +15,7 @@ def index(request):
 
     # Portfolio
     portfolios = Portfolio.objects.all()
-
+    #Todo Form and Portfolio senction?
     #Visits
     #visits before next deploy
     history_views = 0
